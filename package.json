@@ -1,0 +1,14 @@
+{
+  "name": "roll-label",
+  "version": "1.0.0",
+  "description": "Util to create printable roll label",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "yaml": "^2.7.1"
+  }
+}
