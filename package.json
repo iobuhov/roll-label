@@ -7,12 +7,14 @@
     "roll-label": "main.js"
   },
   "scripts": {
-    "build": "esbuild app.jsx --jsx=automatic --outdir=dist"
+    "build": "esbuild app.jsx --jsx=automatic --outdir=dist",
+    "dev": "esbuild app.jsx --jsx=automatic --outdir=dist --watch"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "esbuild": "^0.25.2",
+    "prettier": "^3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "yaml": "^2.7.1"
