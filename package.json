@@ -2,13 +2,19 @@
   "name": "roll-label",
   "version": "1.0.0",
   "description": "Util to create printable roll label",
-  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "roll-label": "main.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild app.jsx --jsx=automatic --outdir=dist"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "esbuild": "^0.25.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "yaml": "^2.7.1"
   }
 }
