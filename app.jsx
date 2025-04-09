@@ -110,6 +110,7 @@ export const PageStyle = () => (
         font-family: monospace;
       }
       body {
+        display: flex;
         margin: 0;
         width: 210mm;
         height: 297mm;
@@ -117,6 +118,7 @@ export const PageStyle = () => (
 
       .content {
         margin: 24px;
+        width: 100%;
       }
 
       .roll-id {
