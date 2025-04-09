@@ -35,27 +35,39 @@ function getMainList(props) {
 }
 function getCol2(props) {
   return [
-    li("ISO", "iso", props),
-    li("push/pull", "pullPush", props),
     li("loaded", "loaded", props),
-    li("developed", "developed", props)
+    li("developed", "developed", props),
+    li("push/pull", "pullPush", props),
+    li("ISO", "iso", props),
+    li("developed at", "developedAt", props),
+    li("location", "location", props)
   ];
 }
 function getCol3(props) {
+  if (props.developedAt === "Lab") {
+    return [];
+  }
+  const { developer, fixer } = props.process.chemicals;
   return [
-    li("location", "location", props),
-    {
-      label: "process",
-      text: props.process.name
-    },
     {
       label: "developer",
-      text: `${props.process.chemicals.developer.name} (${props.process.chemicals.developer.dilution})`
-    }
+      text: `${developer.name} (${developer.dilution})`
+    },
+    {
+      label: "fixer",
+      text: `${fixer.name} (${fixer.dilution})`
+    },
+    empty(),
+    empty(),
+    empty(),
+    empty()
   ];
 }
 function li(label, key, data) {
   return { label, text: data[key] };
+}
+function empty() {
+  return { label: "\xA0", text: "\xA0" };
 }
 const DataListItem = (props) => /* @__PURE__ */ jsxs("div", { className: "line", children: [
   /* @__PURE__ */ jsx("dt", { children: props.label }),
@@ -70,7 +82,7 @@ const cn = (...items) => {
 };
 export const PageStyle = () => /* @__PURE__ */ jsx("style", { children: `
     html {
-        font-family: Courier;
+        font-family: monospace;
       }
       body {
         margin: 0;
@@ -102,11 +114,6 @@ export const PageStyle = () => /* @__PURE__ */ jsx("style", { children: `
       .col {
         display: flex;
         flex-flow: column nowrap;
-        border-right: 1px solid;
-      }
-
-      .col:last-of-type {
-        border-right: 0
       }
 
       .meta {
@@ -138,6 +145,7 @@ export const PageStyle = () => /* @__PURE__ */ jsx("style", { children: `
       }
 
       .line dd {
+        font-weight: bold;
         width: var(--dd-w);
         max-width: 100%;
         margin-inline-start: 4px;
@@ -158,17 +166,13 @@ export const PageStyle = () => /* @__PURE__ */ jsx("style", { children: `
       }
 
       .dl2 {
-        --dt-w: 16mm;
-        --dd-w: 16mm;
+        --dt-w: 20mm;
+        --dd-w: 30mm;
       }
 
       .dl3 {
         --dt-w: 20mm;
         --dd-w: 40mm;
-      }
-
-      .line dt::after {
-        content: ":";
       }
 
       *,
