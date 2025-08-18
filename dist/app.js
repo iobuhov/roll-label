@@ -37,8 +37,8 @@ function getCol2(props) {
   return [
     li("loaded", "loaded", props),
     li("developed", "developed", props),
-    li("push/pull", "pullPush", props),
-    li("ISO", "iso", props),
+    li("EL", "exposureIndex", props),
+    li("box speed", "iso", props),
     li("developed at", "developedAt", props),
     li("location", "location", props)
   ];
@@ -47,17 +47,16 @@ function getCol3(props) {
   if (props.developedAt === "Lab") {
     return [];
   }
-  const { developer, fixer } = props.process.chemicals;
+  const { developer } = props.process;
   return [
     {
       label: "developer",
-      text: `${developer.name} (${developer.dilution})`
+      text: `${developer.name}`
     },
     {
-      label: "fixer",
-      text: `${fixer.name} (${fixer.dilution})`
+      label: "",
+      text: `(${developer.dilution}, ${developer.time}, ${developer.t}\xB0C)`
     },
-    empty(),
     empty(),
     empty(),
     empty()
@@ -169,12 +168,12 @@ export const PageStyle = () => /* @__PURE__ */ jsx("style", { children: `
 
       .dl2 {
         --dt-w: 20mm;
-        --dd-w: 30mm;
+        --dd-w: 20mm;
       }
 
       .dl3 {
         --dt-w: 20mm;
-        --dd-w: 40mm;
+        --dd-w: 50mm;
       }
 
       *,
