@@ -141,6 +141,9 @@ export const PageStyle = () => (
         display: flex;
         flex-flow: column nowrap;
       }
+      .col:first-child {
+        border-right: 1px solid;
+      }
 
       .meta {
         margin: 0;
@@ -163,8 +166,6 @@ export const PageStyle = () => (
         font-weight: bold;
         width: var(--dt-w);
         flex-shrink: 0;
-        background: black;
-        color: white;
         padding: 0 4px;
         display: flex;
         align-items: center;
