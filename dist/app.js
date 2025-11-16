@@ -40,7 +40,7 @@ function getCol2(props) {
   return [
     li("loaded", "loaded", props),
     li("developed", "developed", props),
-    li("EL", "exposureIndex", props),
+    li("EI", "exposureIndex", props),
     li("box speed", "iso", props),
     li("developed at", "developedAt", props),
     li("location", "location", props)
