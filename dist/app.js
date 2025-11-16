@@ -30,7 +30,10 @@ function getMainList(props) {
   return [
     li("film stock", "filmStock", props),
     { label: "camera", text: props.camera.join(" ") },
-    { label: "lens", text: props.lens.join(" ") }
+    {
+      label: "lens",
+      text: Array.isArray(props.lens) ? props.lens.join(" ") : props.lens
+    }
   ];
 }
 function getCol2(props) {
